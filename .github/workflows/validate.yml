@@ -6,7 +6,7 @@ on:
   pull_request:
     branches:
       - 'main'
-jobs: if
+jobs:
   setup:
     # ignore all-contributors PRs
     if: ${{ !contains(github.head_ref, 'all-contributors') }}
