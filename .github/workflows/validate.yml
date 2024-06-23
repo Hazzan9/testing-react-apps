@@ -6,7 +6,7 @@ on:
   pull_request:
     branches:
       - 'main'
-jobs:
+jobs: if
   setup:
     # ignore all-contributors PRs
     if: ${{ !contains(github.head_ref, 'all-contributors') }}
@@ -21,7 +21,7 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 21
 
       - name: npm 8
         run: npm install --global npm@8
