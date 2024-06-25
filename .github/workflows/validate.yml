@@ -31,14 +31,14 @@ jobs:
 
   build:
     needs: setup
-    runs-on: ubuntu-latest
+    runs-on: test-react-apps-latest
     steps:
       - name: ⚙️ Build script
         run: npm run build
 
   test:
     needs: setup
-    runs-on: ubuntu-latest
+    runs-on: test-react-apps-latest
     steps:
       - name: 🧪 Run tests
         run: npm test
