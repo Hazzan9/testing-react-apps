@@ -28,3 +28,28 @@ jobs:
 
       - name: ▶️ Run setup script
         run: npm run setup
+
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⚙️ Build script
+        run: npm run build
+
+  test:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🧪 Run tests
+        run: npm test
+
+  deploy:
+    needs: test
+    runs-on: testing-react-apps
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: 🚀 Deploy to testing-react-apps
+        # Replace with your deployment commands targeting your self-hosted environment
+        run: |
+          ssh user@testing-react-apps 'cd /path/to/deploy && git pull origin main'
+          # Replace with your deployment commands
